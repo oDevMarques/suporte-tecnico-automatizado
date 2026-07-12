@@ -5,7 +5,7 @@ import os
 
 st.set_page_config(
     page_title="Suporte Técnico", 
-    page_icon=":man_technologist:", 
+    page_icon="🛠️", 
     layout="wide", 
     initial_sidebar_state="auto",
 menu_items={
@@ -44,10 +44,10 @@ for mensagem in st.session_state["lista_mensagens"]:
     if mensagem["role"] != "system":
         role = mensagem["role"]
         content = mensagem["content"]
-        st.chat_message(role).write(content)
+        st.chat_message(role, avatar="🛠️" if role == "assistant" else "🕵️").write(content)
 
 if texto_usuario:
-    st.chat_message("User").write(texto_usuario)
+    st.chat_message("User", avatar="🕵️").write(texto_usuario)
     mensagem_usuario = {"role": "user", "content": texto_usuario}
     st.session_state.lista_mensagens.append(mensagem_usuario)
 
@@ -60,7 +60,7 @@ if texto_usuario:
     except Exception as e:
         texto_reposta_ia = "Desculpe, estou com dificuldades técnicas no momento. Tente novamente em instantes."
 
-    st.chat_message("assistant").write(texto_reposta_ia)
+    st.chat_message("assistant", avatar="🛠️").write(texto_reposta_ia)
     mensagem_ia = {"role": "assistant", "content": texto_reposta_ia}
     st.session_state.lista_mensagens.append(mensagem_ia)
 
