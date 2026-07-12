@@ -3,6 +3,18 @@ from groq import Groq
 from dotenv import load_dotenv
 import os
 
+st.set_page_config(
+    page_title="Suporte Técnico", 
+    page_icon=":man_technologist:", 
+    layout="wide", 
+    initial_sidebar_state="auto",
+menu_items={
+        'Get Help': 'https://wa.me/5531984798802',
+        'Report a bug': "https://wa.me/5531984798802",
+        'About': "# Um chatbot de suporte técnico de TI que responde dúvidas comuns de computador, internet e programas de forma simples e sem tecniquês — pensado para pessoas com pouca familiaridade com tecnologia."
+    }
+)
+
 load_dotenv()
 
 
